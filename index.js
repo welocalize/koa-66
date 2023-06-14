@@ -10,7 +10,7 @@
 'use strict';
 
 const debug = require('debug')('koa-66');
-const pathToRegexp = require('path-to-regexp');
+const { pathToRegexp } = require('path-to-regexp');
 const compose = require('koa-compose');
 const util = require('util');
 
@@ -268,6 +268,7 @@ class Koa66 {
                 throw new TypeError('middleware must be a function');
 
             const keys = [];
+            if(path === "/") path = /\//
             path = (!path || path === '(.*)' || util.isRegExp(path)) ? path : this.sanitizePath(path);
             const regexp = pathToRegexp(path, keys);
 
