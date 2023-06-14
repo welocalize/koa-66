@@ -10,7 +10,7 @@
 'use strict';
 
 const debug = require('debug')('koa-66');
-const pathToRegexp = require('path-to-regexp');
+const { pathToRegexp } = require('path-to-regexp');
 const compose = require('koa-compose');
 const util = require('util');
 
