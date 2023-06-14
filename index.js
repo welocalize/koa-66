@@ -268,6 +268,7 @@ class Koa66 {
                 throw new TypeError('middleware must be a function');
 
             const keys = [];
+            if(path === "/") path = /\//
             path = (!path || path === '(.*)' || util.isRegExp(path)) ? path : this.sanitizePath(path);
             const regexp = pathToRegexp(path, keys);
 
